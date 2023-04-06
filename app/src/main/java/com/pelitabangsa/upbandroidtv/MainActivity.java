@@ -1,28 +1,22 @@
 package com.pelitabangsa.upbandroidtv;
 
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.bumptech.glide.Glide;
-import com.google.gson.Gson;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
 public class MainActivity extends FragmentActivity {
-    private TextView title;
-    private TextView language;
-    private TextView description;
-//    private FragmentContainerView listFragment;
-    private ImageView imgBanner;
 
-    private ListFragment listFragment;
+    private TextView btnSearch;
+    private TextView btnHome;
+    private TextView btnMovies;
+    private TextView btnTv;
+    private TextView btnSports;
+    private TextView btnSettings;
+    private TextView btnLanguage;
+    private TextView btnGenre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,40 +24,23 @@ public class MainActivity extends FragmentActivity {
         setContentView(R.layout.activity_main);
         initView();
 
-        listFragment = new ListFragment();
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.list_fragment, listFragment);
-        transaction.commit();
-
-        Gson gson = new Gson();
-        InputStream i = null;
-        try {
-            i = this.getAssets().open("movies.json");
-            BufferedReader br = new BufferedReader(new InputStreamReader(i));
-            DataModel dataList = gson.fromJson(br, DataModel.class);
-
-            listFragment.bindData(dataList);
-
-            listFragment.setOnContentSelectedListener(this::updateBanner);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+        changeFragment(new HomeFragment());
     }
 
-    private void updateBanner(DataModel.Result.Detail dataList) {
-        title.setText(dataList.title);
-        language.setText(dataList.original_language);
-        description.setText(dataList.overview);
-
-        String url = "https://www.themoviedb.org/t/p/w500" + dataList.backdrop_path;
-        Glide.with(this).load(url).into(imgBanner);
+    private void changeFragment(Fragment fragment) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, fragment);
+        transaction.commit();
     }
 
     private void initView() {
-        title = (TextView) findViewById(R.id.title);
-        language = (TextView) findViewById(R.id.language);
-        description = (TextView) findViewById(R.id.description);
-        imgBanner = (ImageView) findViewById(R.id.img_Banner);
-//        listFragment = (FragmentContainerView) findViewById(R.id.list_fragment);
+        btnSearch = (TextView) findViewById(R.id.btn_search);
+        btnHome = (TextView) findViewById(R.id.btn_home);
+        btnMovies = (TextView) findViewById(R.id.btn_movies);
+        btnTv = (TextView) findViewById(R.id.btn_tv);
+        btnSports = (TextView) findViewById(R.id.btn_sports);
+        btnSettings = (TextView) findViewById(R.id.btn_settings);
+        btnLanguage = (TextView) findViewById(R.id.btn_language);
+        btnGenre = (TextView) findViewById(R.id.btn_genre);
     }
 }
