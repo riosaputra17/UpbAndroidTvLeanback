@@ -17,7 +17,7 @@ public class ItemPresenter extends Presenter {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view, parent, false);
 
         ViewGroup.LayoutParams params = view.getLayoutParams();
-        params.width = getWidthInPercent(parent.getContext(), 12);
+        params.width = getWidthInPercent(parent.getContext(), 24);
         params.height = getHeightInPercent(parent.getContext(), 32);
 
         return new ViewHolder(view);
