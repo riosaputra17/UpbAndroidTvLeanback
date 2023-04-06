@@ -18,7 +18,7 @@ public class ItemPresenter extends Presenter {
 
         ViewGroup.LayoutParams params = view.getLayoutParams();
         params.width = getWidthInPercent(parent.getContext(), 24);
-        params.height = getHeightInPercent(parent.getContext(), 32);
+        params.height = getHeightInPercent(parent.getContext(), 24);
 
         return new ViewHolder(view);
     }
