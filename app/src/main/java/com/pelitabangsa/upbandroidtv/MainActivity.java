@@ -7,6 +7,7 @@ import android.widget.TextView;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
@@ -42,9 +43,20 @@ public class MainActivity extends FragmentActivity {
             DataModel dataList = gson.fromJson(br, DataModel.class);
 
             listFragment.bindData(dataList);
+
+            listFragment.setOnContentSelectedListener(this::updateBanner);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    private void updateBanner(DataModel.Result.Detail dataList) {
+        title.setText(dataList.title);
+        language.setText(dataList.original_language);
+        description.setText(dataList.overview);
+
+        String url = "https://www.themoviedb.org/t/p/w500" + dataList.backdrop_path;
+        Glide.with(this).load(url).into(imgBanner);
     }
 
     private void initView() {
