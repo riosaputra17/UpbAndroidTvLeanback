@@ -15,8 +15,8 @@
     <androidx.leanback.widget.BrowseFrameLayout
         android:id="@+id/bflNavBar"
         android:layout_width="50dp"
-        android:background="@android:color/black"
         android:layout_height="match_parent"
+        android:background="@android:color/black"
         android:nextFocusLeft="@id/container">
 
         <LinearLayout
@@ -30,8 +30,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginStart="16dp"
+                android:background="@drawable/selector_menu"
                 android:drawableStart="@drawable/ic_search"
-                android:focusable="true" />
+                android:drawablePadding="16dp"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:text="@string/search"
+                android:textColor="@color/lb_tv_white" />
 
             <TextView
                 android:id="@+id/btn_home"
