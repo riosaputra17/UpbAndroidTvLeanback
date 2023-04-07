@@ -74,7 +74,7 @@
                 android:drawablePadding="16dp"
                 android:focusable="true"
                 android:gravity="center_vertical"
-                android:text="@string/television"
+                android:text="@string/tv_show"
                 android:textColor="@color/text_selector_white_grey" />
 
             <TextView
