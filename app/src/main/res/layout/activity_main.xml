@@ -36,39 +36,59 @@
                 android:focusable="true"
                 android:gravity="center_vertical"
                 android:text="@string/search"
-                android:textColor="@color/lb_tv_white" />
+                android:textColor="@color/text_selector_white_grey" />
 
             <TextView
                 android:id="@+id/btn_home"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginStart="16dp"
+                android:background="@drawable/selector_menu"
                 android:drawableStart="@drawable/ic_home"
-                android:focusable="true" />
+                android:drawablePadding="16dp"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:text="@string/home"
+                android:textColor="@color/text_selector_white_grey" />
 
             <TextView
                 android:id="@+id/btn_movies"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginStart="16dp"
+                android:background="@drawable/selector_menu"
                 android:drawableStart="@drawable/ic_movie"
-                android:focusable="true" />
+                android:drawablePadding="16dp"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:text="@string/movies"
+                android:textColor="@color/text_selector_white_grey" />
 
             <TextView
                 android:id="@+id/btn_tv"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginStart="16dp"
+                android:background="@drawable/selector_menu"
                 android:drawableStart="@drawable/ic_tv"
-                android:focusable="true" />
+                android:drawablePadding="16dp"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:text="@string/television"
+                android:textColor="@color/text_selector_white_grey" />
 
             <TextView
                 android:id="@+id/btn_sports"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginStart="16dp"
+                android:background="@drawable/selector_menu"
                 android:drawableStart="@drawable/ic_sport"
-                android:focusable="true" />
+                android:drawablePadding="16dp"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:text="@string/sport"
+                android:textColor="@color/text_selector_white_grey" />
 
             <TextView
                 android:id="@+id/btn_settings"
@@ -76,24 +96,39 @@
                 android:layout_height="45dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="32dp"
+                android:background="@drawable/selector_menu"
                 android:drawableStart="@drawable/ic_settings"
-                android:focusable="true" />
+                android:drawablePadding="16dp"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:text="@string/settings"
+                android:textColor="@color/text_selector_white_grey" />
 
             <TextView
                 android:id="@+id/btn_language"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginStart="16dp"
+                android:background="@drawable/selector_menu"
                 android:drawableStart="@drawable/ic_language"
-                android:focusable="true" />
+                android:drawablePadding="16dp"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:text="@string/languages"
+                android:textColor="@color/text_selector_white_grey" />
 
             <TextView
                 android:id="@+id/btn_genre"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginStart="16dp"
+                android:background="@drawable/selector_menu"
                 android:drawableStart="@drawable/ic_genre"
-                android:focusable="true" />
+                android:drawablePadding="16dp"
+                android:focusable="true"
+                android:gravity="center_vertical"
+                android:text="@string/genres"
+                android:textColor="@color/text_selector_white_grey" />
 
         </LinearLayout>
 
