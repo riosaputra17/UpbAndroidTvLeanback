@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
+import com.pelitabangsa.upbandroidtv.utils.Constants;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -64,8 +65,14 @@ public class HomeFragment extends Fragment {
             listFragment.setOnContentClickedListener(new ListFragment.OnItemClickListener() {
                 @Override
                 public void onItemClick(DataModel.Result.Detail item) {
+                    Constants constant = new Constants();
+
                     Intent intent = new Intent(requireContext(), DetailActivity.class);
-                    intent.putExtra("id", item.id);
+                    intent.putExtra(constant.ID, item.id);
+                    intent.putExtra(constant.BACKDROP, item.backdrop_path);
+                    intent.putExtra(constant.TITLE, item.title);
+                    intent.putExtra(constant.LANGUAGE, item.original_language);
+                    intent.putExtra(constant.DESCRIPTION, item.overview);
                     startActivity(intent);
                 }
             });
