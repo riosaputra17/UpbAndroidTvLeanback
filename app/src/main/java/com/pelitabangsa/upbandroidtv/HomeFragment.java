@@ -1,5 +1,6 @@
 package com.pelitabangsa.upbandroidtv;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -60,6 +61,14 @@ public class HomeFragment extends Fragment {
             listFragment.bindData(dataList);
 
             listFragment.setOnContentSelectedListener(this::updateBanner);
+            listFragment.setOnContentClickedListener(new ListFragment.OnItemClickListener() {
+                @Override
+                public void onItemClick(DataModel.Result.Detail item) {
+                    Intent intent = new Intent(requireContext(), DetailActivity.class);
+                    intent.putExtra("id", item.id);
+                    startActivity(intent);
+                }
+            });
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

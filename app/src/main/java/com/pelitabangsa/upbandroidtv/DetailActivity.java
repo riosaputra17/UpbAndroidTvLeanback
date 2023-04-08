@@ -1,10 +1,11 @@
 package com.pelitabangsa.upbandroidtv;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
 
-public class DetailActivity extends AppCompatActivity {
+public class DetailActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
