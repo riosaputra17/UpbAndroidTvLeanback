@@ -39,7 +39,7 @@ public class ItemPresenter extends Presenter {
         DataModel.Result.Detail content = (DataModel.Result.Detail) item;
 
         ImageView imageView = viewHolder.view.findViewById(R.id.poster_image);
-        String url = "https://www.themoviedb.org/t/p/w500" + content.backdrop_path;
+        String url = content.poster_path;
 
         Glide.with(viewHolder.view.getContext())
                 .load(url)

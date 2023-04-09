@@ -53,7 +53,7 @@ public class DetailActivity extends FragmentActivity {
     }
 
     private void getImgBanner(Bundle bundle, Constants constant) {
-        String url = "https://www.themoviedb.org/t/p/w500" + bundle.getString(constant.BACKDROP);
+        String url = bundle.getString(constant.BACKDROP);
         Glide.with(this)
                 .load(url)
                 .into(imgBanner);

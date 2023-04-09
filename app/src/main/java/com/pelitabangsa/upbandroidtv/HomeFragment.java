@@ -55,7 +55,7 @@ public class HomeFragment extends Fragment {
         Gson gson = new Gson();
         InputStream i = null;
         try {
-            i = requireContext().getAssets().open("movies.json");
+            i = requireContext().getAssets().open("home.json");
             BufferedReader br = new BufferedReader(new InputStreamReader(i));
             DataModel dataList = gson.fromJson(br, DataModel.class);
 
@@ -71,8 +71,7 @@ public class HomeFragment extends Fragment {
                     intent.putExtra(constant.ID, item.id);
                     intent.putExtra(constant.BACKDROP, item.backdrop_path);
                     intent.putExtra(constant.TITLE, item.title);
-                    intent.putExtra(constant.LANGUAGE, item.original_language);
-                    intent.putExtra(constant.DESCRIPTION, item.overview);
+                    intent.putExtra(constant.DESCRIPTION, item.description);
                     startActivity(intent);
                 }
             });
@@ -83,10 +82,9 @@ public class HomeFragment extends Fragment {
 
     private void updateBanner(DataModel.Result.Detail dataList) {
         title.setText(dataList.title);
-        language.setText(dataList.original_language);
-        description.setText(dataList.overview);
+        description.setText(dataList.description);
 
-        String url = "https://www.themoviedb.org/t/p/w500" + dataList.backdrop_path;
+        String url = dataList.backdrop_path;
         Glide.with(this).load(url).into(imgBanner);
     }
 

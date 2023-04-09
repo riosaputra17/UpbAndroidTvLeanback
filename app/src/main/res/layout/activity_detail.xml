@@ -90,7 +90,6 @@
         android:ellipsize="end"
         android:fontFamily="sans-serif-black"
         android:lineSpacingMultiplier="1.2"
-        android:maxLines="3"
         android:text="Avatar : The way of water"
         android:textColor="@color/color_white"
         android:textSize="13sp"
