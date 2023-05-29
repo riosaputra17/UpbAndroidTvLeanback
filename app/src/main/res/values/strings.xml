@@ -7,7 +7,8 @@
     <string name="movies">Movies</string>
     <string name="tv_show">TV Show</string>
     <string name="sport">Sport</string>
-    <string name="settings">Settings</string>
+    <string name="about">About</string>
     <string name="languages">Languages</string>
     <string name="genres">Genres</string>
+    <string name="motor">Motor</string>
 </resources>
