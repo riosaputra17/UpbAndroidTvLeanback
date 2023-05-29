@@ -1,11 +1,13 @@
 package com.pelitabangsa.upbandroidtv;
 
+import android.media.Image;
 import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
@@ -13,6 +15,7 @@ import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.leanback.widget.BrowseFrameLayout;
 
+import com.pelitabangsa.upbandroidtv.fragment.AboutFragment;
 import com.pelitabangsa.upbandroidtv.fragment.GenresFragment;
 import com.pelitabangsa.upbandroidtv.fragment.LanguageFragment;
 import com.pelitabangsa.upbandroidtv.fragment.MovieFragment;
@@ -25,14 +28,14 @@ import com.pelitabangsa.upbandroidtv.utils.Constants;
 
 public class MainActivity extends FragmentActivity implements View.OnKeyListener {
 
-    private TextView btnSearch;
-    private TextView btnHome;
-    private TextView btnMovies;
-    private TextView btnTv;
-    private TextView btnSports;
-    private TextView btnSettings;
-    private TextView btnLanguage;
-    private TextView btnGenre;
+
+    private ImageView btnHome;
+    private ImageView btnMovies;
+    private ImageView btnTv;
+    private ImageView btnSports;
+    private ImageView btnSettings;
+    private ImageView btnAbout;
+
     private BrowseFrameLayout navBar;
     private boolean SIDE_MENU = false;
 
@@ -60,14 +63,12 @@ public class MainActivity extends FragmentActivity implements View.OnKeyListener
     }
 
     private void initView() {
-        btnSearch = (TextView) findViewById(R.id.btn_search);
-        btnHome = (TextView) findViewById(R.id.btn_home);
-        btnMovies = (TextView) findViewById(R.id.btn_movies);
-        btnTv = (TextView) findViewById(R.id.btn_tv);
-        btnSports = (TextView) findViewById(R.id.btn_sports);
-        btnSettings = (TextView) findViewById(R.id.btn_settings);
-        btnLanguage = (TextView) findViewById(R.id.btn_language);
-        btnGenre = (TextView) findViewById(R.id.btn_genre);
+        btnHome = (ImageView) findViewById(R.id.btn_home);
+        btnMovies = (ImageView) findViewById(R.id.btn_movies);
+        btnTv = (ImageView) findViewById(R.id.btn_tv);
+        btnSports = (ImageView) findViewById(R.id.btn_sports);
+        btnSettings = (ImageView) findViewById(R.id.btn_settings);
+        btnAbout = (ImageView) findViewById(R.id.btn_about);
         navBar = (BrowseFrameLayout) findViewById(R.id.bflNavBar);
         fragmentContainer = (FrameLayout) findViewById(R.id.container);
 
@@ -79,14 +80,12 @@ public class MainActivity extends FragmentActivity implements View.OnKeyListener
     }
 
     private void initSetOnKeyListener() {
-        btnSearch.setOnKeyListener(this);
         btnHome.setOnKeyListener(this);
         btnMovies.setOnKeyListener(this);
         btnTv.setOnKeyListener(this);
         btnSports.setOnKeyListener(this);
         btnSettings.setOnKeyListener(this);
-        btnLanguage.setOnKeyListener(this);
-        btnGenre.setOnKeyListener(this);
+        btnAbout.setOnKeyListener(this);
     }
 
     @Override
@@ -99,10 +98,6 @@ public class MainActivity extends FragmentActivity implements View.OnKeyListener
                 lastSelectedMenu = view;
 
                 switch (view.getId()) {
-                    case R.id.btn_search:
-                        selectedMenu = constants.MENU_SEARCH;
-                        changeFragment(new SearchFragment());
-                        break;
                     case R.id.btn_home:
                         selectedMenu = constants.MENU_HOME;
                         changeFragment(new HomeFragment());
@@ -123,14 +118,11 @@ public class MainActivity extends FragmentActivity implements View.OnKeyListener
                         selectedMenu = constants.MENU_SETTINGS;
                         changeFragment(new SettingsFragment());
                         break;
-                    case R.id.btn_language:
-                        selectedMenu = constants.MENU_LANGUAGE;
-                        changeFragment(new LanguageFragment());
+                    case R.id.btn_about:
+                        selectedMenu = constants.MENU_ABOUT;
+                        changeFragment(new AboutFragment());
                         break;
-                    case R.id.btn_genre:
-                        selectedMenu = constants.MENU_GENRES;
-                        changeFragment(new GenresFragment());
-                        break;
+
                 }
             case KeyEvent.KEYCODE_DPAD_LEFT:
                 if (!SIDE_MENU) {
@@ -167,9 +159,7 @@ public class MainActivity extends FragmentActivity implements View.OnKeyListener
 
     private void switchToLastSelectedMenu() {
         switch (selectedMenu) {
-            case "search":
-                btnSearch.requestFocus();
-                break;
+
             case "home":
                 btnHome.requestFocus();
                 break;
@@ -185,12 +175,7 @@ public class MainActivity extends FragmentActivity implements View.OnKeyListener
             case "settings":
                 btnSettings.requestFocus();
                 break;
-            case "language":
-                btnLanguage.requestFocus();
-                break;
-            case "genres":
-                btnGenre.requestFocus();
-                break;
+
         }
     }
 
@@ -199,12 +184,12 @@ public class MainActivity extends FragmentActivity implements View.OnKeyListener
         navBar.startAnimation(animSlide);
 
         navBar.requestLayout();
-        navBar.getLayoutParams().width = Common.getWidthInPercent(this, 16);
+        navBar.getLayoutParams().width = Common.getWidthInPercent(this, 10);
     }
 
     private void closeMenu() {
         navBar.requestLayout();
-        navBar.getLayoutParams().width = Common.getWidthInPercent(this, 5);
+        navBar.getLayoutParams().width = Common.getWidthInPercent(this, 8);
 
         fragmentContainer.requestFocus();
         SIDE_MENU = false;

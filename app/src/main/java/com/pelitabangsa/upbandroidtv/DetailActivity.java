@@ -1,6 +1,7 @@
 package com.pelitabangsa.upbandroidtv;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,10 +17,12 @@ public class DetailActivity extends FragmentActivity {
     private TextView title;
     private TextView language;
     private TextView description;
-    private TextView play;
+    private TextView viewMore;
     private TextView moreLikeThis;
     private TextView addToMylist;
     private FragmentContainerView castFragment;
+    private Boolean isViewMore = true;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +36,29 @@ public class DetailActivity extends FragmentActivity {
         title = (TextView) findViewById(R.id.title);
         language = (TextView) findViewById(R.id.language);
         description = (TextView) findViewById(R.id.description);
-        play = (TextView) findViewById(R.id.play);
+        viewMore = (TextView) findViewById(R.id.view_more);
         moreLikeThis = (TextView) findViewById(R.id.more_like_this);
         addToMylist = (TextView) findViewById(R.id.add_to_mylist);
         castFragment = (FragmentContainerView) findViewById(R.id.cast_fragment);
 
         Bundle bundle = getIntent().getExtras();
+
+        viewMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                isViewMore = !isViewMore;
+                if (isViewMore) {
+                    description.setMaxLines(3);
+                    viewMore.setText("View More Information");
+                    viewMore.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_more, 0, 0, 0);
+                } else {
+                    description.setMaxLines(100);
+                    viewMore.setText("View Less Information");
+                    viewMore.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_less, 0, 0, 0);
+                }
+
+            }
+        });
 
         getDetails(bundle);
     }

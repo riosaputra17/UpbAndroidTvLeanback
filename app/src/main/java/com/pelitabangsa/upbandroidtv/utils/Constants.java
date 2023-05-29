@@ -9,6 +9,7 @@ public class Constants {
     public final String MENU_LANGUAGE = "language";
     public final String MENU_GENRES = "genres";
     public final String MENU_SETTINGS = "settings";
+    public final String MENU_ABOUT ="about";
 
     // intent tags
     public final String INTENT_MENU = "manu";
