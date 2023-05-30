@@ -16,7 +16,7 @@
             android:layout_gravity="center"
             app:lottie_autoPlay="true"
             app:lottie_loop="true"
-            app:lottie_rawRes="@raw/bg_anim" />
+            app:lottie_rawRes="@raw/bg_anim3" />
 
         <View
             android:layout_width="match_parent"
