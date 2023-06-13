@@ -3,8 +3,8 @@
 
     <gradient
         android:endColor="@android:color/transparent"
-        android:centerColor="#282828"
-        android:startColor="#282828"
-        android:centerY=".54" />
+        android:centerColor="@android:color/black"
+        android:startColor="@android:color/black"
+        android:centerY=".74" />
 
 </shape>

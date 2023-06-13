@@ -15,6 +15,8 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
 import com.google.gson.Gson;
+import com.pelitabangsa.upbandroidtv.models.motor.DetailsItem;
+import com.pelitabangsa.upbandroidtv.models.motor.MotorModel;
 import com.pelitabangsa.upbandroidtv.utils.Constants;
 
 import java.io.BufferedReader;
@@ -26,7 +28,7 @@ public class MotorFragment extends Fragment {
     private TextView title;
     private TextView language;
     private TextView description;
-//    private FragmentContainerView listFragment;
+    //    private FragmentContainerView listFragment;
     private ImageView imgBanner;
 
     private ListFragment listFragment;
@@ -55,23 +57,23 @@ public class MotorFragment extends Fragment {
         Gson gson = new Gson();
         InputStream i = null;
         try {
-            i = requireContext().getAssets().open("home.json");
+            i = requireContext().getAssets().open("motor.json");
             BufferedReader br = new BufferedReader(new InputStreamReader(i));
-            DataModel dataList = gson.fromJson(br, DataModel.class);
+            MotorModel dataList = gson.fromJson(br, MotorModel.class);
 
             listFragment.bindData(dataList);
 
             listFragment.setOnContentSelectedListener(this::updateBanner);
             listFragment.setOnContentClickedListener(new ListFragment.OnItemClickListener() {
                 @Override
-                public void onItemClick(DataModel.Result.Detail item) {
+                public void onItemClick(DetailsItem item) {
                     Constants constant = new Constants();
 
                     Intent intent = new Intent(requireContext(), DetailActivity.class);
-                    intent.putExtra(constant.ID, item.id);
-                    intent.putExtra(constant.BACKDROP, item.backdrop_path);
-                    intent.putExtra(constant.TITLE, item.title);
-                    intent.putExtra(constant.DESCRIPTION, item.description);
+                    intent.putExtra(constant.ID, item.getId());
+                    intent.putExtra(constant.BACKDROP, item.getMotorBg());
+                    intent.putExtra(constant.TITLE, item.getMotorModel());
+                    intent.putExtra(constant.DESCRIPTION, item.getDeskripsi());
                     startActivity(intent);
                 }
             });
@@ -80,11 +82,11 @@ public class MotorFragment extends Fragment {
         }
     }
 
-    private void updateBanner(DataModel.Result.Detail dataList) {
-        title.setText(dataList.title);
-        description.setText(dataList.description);
+    private void updateBanner(DetailsItem dataList) {
+        title.setText(dataList.getMotorModel());
+        description.setText(dataList.getDeskripsi());
 
-        String url = dataList.backdrop_path;
+        String url = dataList.getMotorBg();
         Glide.with(this)
                 .load(url)
                 .into(imgBanner);

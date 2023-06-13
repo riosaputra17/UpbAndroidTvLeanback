@@ -17,6 +17,10 @@ import androidx.leanback.widget.Presenter;
 import androidx.leanback.widget.Row;
 import androidx.leanback.widget.RowPresenter;
 
+import com.pelitabangsa.upbandroidtv.models.motor.DetailsItem;
+import com.pelitabangsa.upbandroidtv.models.motor.MotorModel;
+import com.pelitabangsa.upbandroidtv.models.motor.ResultsItem;
+
 public class ListFragment extends RowsSupportFragment {
 
     private OnItemSelectedListener itemSelectedListener = null;
@@ -24,11 +28,11 @@ public class ListFragment extends RowsSupportFragment {
     private ArrayObjectAdapter rootAdapter = new ArrayObjectAdapter(new ListRowPresenter(FocusHighlight.ZOOM_FACTOR_MEDIUM));
 
     public interface OnItemSelectedListener {
-        void onItemSelected(DataModel.Result.Detail item);
+        void onItemSelected(DetailsItem item);
     }
 
     public interface OnItemClickListener {
-        void onItemClick(DataModel.Result.Detail item);
+        void onItemClick(DetailsItem item);
     }
 
 
@@ -43,16 +47,16 @@ public class ListFragment extends RowsSupportFragment {
         setOnItemViewClickedListener(new ItemViewClickedListener());
     }
 
-    public void bindData(DataModel dataList) {
+    public void bindData(MotorModel motorList) {
 
-        for (DataModel.Result dataModel : dataList.result) {
+        for (ResultsItem motorModel : motorList.getResults()) {
             ArrayObjectAdapter arrayObjectAdapter = new ArrayObjectAdapter(new ItemPresenter());
 
-            for (DataModel.Result.Detail detail : dataModel.details) {
+            for (DetailsItem detail : motorModel.getDetails()) {
                 arrayObjectAdapter.add(detail);
             }
 
-            HeaderItem headerItem = new HeaderItem(dataModel.title);
+            HeaderItem headerItem = new HeaderItem(motorModel.getTitle());
             ListRow listRow = new ListRow(headerItem, arrayObjectAdapter);
             rootAdapter.add(listRow);
         }
@@ -69,9 +73,9 @@ public class ListFragment extends RowsSupportFragment {
     private class ItemViewSelectedListener implements OnItemViewSelectedListener {
         @Override
         public void onItemSelected(Presenter.ViewHolder itemViewHolder, Object item, RowPresenter.ViewHolder rowViewHolder, Row row) {
-            if (item instanceof DataModel.Result.Detail) {
+            if (item instanceof DetailsItem) {
                 if (itemSelectedListener != null) {
-                    itemSelectedListener.onItemSelected((DataModel.Result.Detail)item);
+                    itemSelectedListener.onItemSelected((DetailsItem) item);
                 }
             }
         }
@@ -80,9 +84,9 @@ public class ListFragment extends RowsSupportFragment {
     private class ItemViewClickedListener implements OnItemViewClickedListener {
         @Override
         public void onItemClicked(Presenter.ViewHolder itemViewHolder, Object item, RowPresenter.ViewHolder rowViewHolder, Row row) {
-            if (item instanceof DataModel.Result.Detail) {
+            if (item instanceof DetailsItem) {
                 if (itemViewClickedListener != null) {
-                    itemViewClickedListener.onItemClick((DataModel.Result.Detail)item);
+                    itemViewClickedListener.onItemClick((DetailsItem) item);
                 }
             }
         }

@@ -82,9 +82,11 @@ public class MainActivity extends FragmentActivity implements View.OnKeyListener
 
                 switch (view.getId()) {
                     case R.id.btn_home:
-                        selectedMenu = constants.MENU_HOME;
-                        changeFragment(new HomeFragment());
-                        break;
+                        if (view.getId() != R.id.btn_start) {
+                            selectedMenu = constants.MENU_HOME;
+                            changeFragment(new HomeFragment());
+                            break;
+                        }
                     case R.id.btn_motor:
                         selectedMenu = constants.MENU_MOTOR;
                         changeFragment(new MotorFragment());

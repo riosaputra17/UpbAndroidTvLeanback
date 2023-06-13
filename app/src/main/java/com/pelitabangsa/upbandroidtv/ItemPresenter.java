@@ -5,20 +5,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.leanback.widget.Presenter;
 
 import com.bumptech.glide.Glide;
+import com.pelitabangsa.upbandroidtv.models.motor.DetailsItem;
 
 public class ItemPresenter extends Presenter {
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_view, parent, false);
-
-        ViewGroup.LayoutParams params = view.getLayoutParams();
-        params.width = getWidthInPercent(parent.getContext(), 24);
-        params.height = getHeightInPercent(parent.getContext(), 24);
 
         return new ViewHolder(view);
     }
@@ -36,11 +34,13 @@ public class ItemPresenter extends Presenter {
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, Object item) {
 
-        DataModel.Result.Detail content = (DataModel.Result.Detail) item;
+        DetailsItem content = (DetailsItem) item;
 
         ImageView imageView = viewHolder.view.findViewById(R.id.poster_image);
-        String url = content.poster_path;
+        TextView textCard = viewHolder.view.findViewById(R.id.text_card);
+        String url = content.getMotorPoster();
 
+        textCard.setText(content.getMotorModel());
         Glide.with(viewHolder.view.getContext())
                 .load(url)
                 .into(imageView);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,22 +7,14 @@
     android:orientation="vertical">
 
     <FrameLayout
+        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <com.airbnb.lottie.LottieAnimationView
+        <VideoView
+            android:id="@+id/bg_video"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            app:lottie_autoPlay="true"
-            app:lottie_loop="true"
-            app:lottie_rawRes="@raw/bg_anim3" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:alpha=".5"
-            android:background="@android:color/black" />
+            android:layout_height="match_parent" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:layout_width="match_parent"
@@ -31,30 +23,57 @@
             app:lottie_autoPlay="true"
             app:lottie_rawRes="@raw/motor_anim" />
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:alpha=".2"
+            android:background="@android:color/black" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="350dp"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Dream Motor Sport Collection\nBeyond Limits: Menyusuri Motor Sport Fairing Berkekuatan Tinggi dari 150 cc sampai 1000 cc"
-                android:textColor="@android:color/white"
-                android:textStyle="bold"/>
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="350dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dream Motor Sport Collection\nBeyond Limits: Menyusuri Motor Sport Fairing Berkekuatan Tinggi dari 150 cc sampai 1000 cc"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="700dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Kumpulan motor sport ini merupakan tempat yang menyajikan informasi lengkap dan terkini tentang motor sport fairing dengan kapasitas mesin dari 150 cc sampai 1000 cc. Melalui proyek ini, kami menghadirkan koleksi motor sport terbaik yang menawarkan performa tinggi, desain keren, dan pengalaman berkendara yang menggetarkan. Dalam platform ini, Anda dapat menemukan ulasan, spesifikasi, gambar, dan video terkait motor sport fairing yang penuh adrenalin ini."
+                    android:textColor="@android:color/white" />
+
+            </LinearLayout>
 
             <TextView
-                android:layout_width="700dp"
+                android:id="@+id/btn_start"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="Kumpulan motor sport ini merupakan tempat yang menyajikan informasi lengkap dan terkini tentang motor sport fairing dengan kapasitas mesin dari 150 cc sampai 1000 cc. Melalui proyek ini, kami menghadirkan koleksi motor sport terbaik yang menawarkan performa tinggi, desain keren, dan pengalaman berkendara yang menggetarkan. Dalam platform ini, Anda dapat menemukan ulasan, spesifikasi, gambar, dan video terkait motor sport fairing yang penuh adrenalin ini."
-                android:textColor="@android:color/white"/>
+                android:text="Let's Get Started!"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:clickable="true"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="20dp"
+                android:textColor="@android:color/white"
+                android:padding="20dp"
+                android:background="@drawable/selector_btn" />
 
         </LinearLayout>
 
 
     </FrameLayout>
 
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
