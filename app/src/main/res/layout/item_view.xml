@@ -24,7 +24,7 @@
             android:id="@+id/color_card"
             android:layout_width="match_parent"
             android:layout_height="20dp"
-            android:background="#796459"
+            android:background="#44362d"
             android:layout_gravity="bottom"
 
             />
