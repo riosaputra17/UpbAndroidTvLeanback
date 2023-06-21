@@ -94,7 +94,6 @@ public class MotorFragment extends Fragment {
 
     private void initView(View view) {
         title = (TextView) view.findViewById(R.id.title);
-        language = (TextView) view.findViewById(R.id.language);
         description = (TextView) view.findViewById(R.id.description);
         imgBanner = (ImageView) view.findViewById(R.id.img_Banner);
 //        listFragment = (FragmentContainerView) findViewById(R.id.list_fragment);

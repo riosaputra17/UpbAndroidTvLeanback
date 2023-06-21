@@ -1,15 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:background="#282828">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="About Fragment"
-        android:textColor="@color/color_white"
-        android:textSize="24sp" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</LinearLayout>
+        <ImageView
+            android:id="@+id/img_Banner"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/preview_detail_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/vertical_gradient"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="-50dp"
+            android:background="@drawable/gradient_vertical_detail"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_Banner" />
+
+        <TextView
+            android:id="@+id/tv_tentang_kami"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_white"
+            android:fontFamily="@font/poppins_bold"
+            app:layout_constraintTop_toBottomOf="@id/img_Banner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="30sp"
+            android:text="Tentang Kami" />
+
+        <TextView
+            android:id="@+id/tv_isi_about"
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_white"
+            app:layout_constraintTop_toBottomOf="@id/tv_tentang_kami"
+            android:textAlignment="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textSize="14sp"
+            android:text="Dream Motor Sport Colection adalah aplikasi yang berisi kumpulan motor sport terbaik dari class 150 cc sampai 1000 cc
+aplikasi ini bertujuan untuk memenuhi tugas pemrograman mobile mahasiswa Universitas Pelita Bangsa Prodi Teknik Informatika" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

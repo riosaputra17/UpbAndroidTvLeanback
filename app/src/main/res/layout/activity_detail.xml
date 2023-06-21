@@ -10,98 +10,86 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_top"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            app:layout_constraintGuide_percent=".075" />
-
-        <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline_start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintGuide_percent=".055" />
-
         <ImageView
             android:id="@+id/img_banner"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:adjustViewBounds="true"
-            android:src="@drawable/ic_movie"
-            app:layout_constraintDimensionRatio="16:9"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/preview_detail_image"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent=".6" />
-
-        <View
-            android:id="@+id/horizontal_gradient"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/banner_gradient"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="@id/guideline_start"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent=".75" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <View
             android:id="@+id/vertical_gradient"
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/gradient_vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="-50dp"
+            android:background="@drawable/gradient_vertical_detail"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHeight_default="percent"
-            app:layout_constraintHeight_percent=".7"
-            app:layout_constraintStart_toStartOf="@id/guideline_start"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_banner" />
+
+        <TextView
+            android:id="@+id/tv_deskripsi_motor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/poppins_bold"
+            android:lineHeight="60dp"
+            android:text="@string/deskripsi_nmotor"
+            android:textColor="@color/color_white"
+            android:textSize="50sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_banner"
+            tools:ignore="UnusedAttribute" />
+
+        <ImageView
+            android:id="@+id/img_motor"
+            android:layout_width="300dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="600dp"
+            android:layout_marginLeft="15dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/yamaha_r1_transformed"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.144"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_deskripsi_motor"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/title"
-            android:layout_width="0dp"
+            android:id="@+id/tv_model"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans-serif-black"
-            android:text="Avatar : The way of water"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="100dp"
+            android:fontFamily="@font/poppins_bold"
+            android:lineHeight="70dp"
+            android:text="Yamaha R1 M"
             android:textColor="@color/color_white"
-            android:textSize="26sp"
-            app:layout_constraintStart_toEndOf="@+id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@+id/guideline_top"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent=".42" />
+            android:textSize="50sp"
+            app:layout_constraintStart_toStartOf="@id/tv_deskripsi_content"
+            app:layout_constraintTop_toBottomOf="@id/img_banner"
+            tools:ignore="UnusedAttribute" />
+
+
+
 
         <TextView
-            android:id="@+id/language"
-            android:layout_width="0dp"
+            android:id="@+id/tv_deskripsi_content"
+            android:layout_width="500dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="sans-serif-black"
-            android:text="Avatar : The way of water"
+            android:layout_marginTop="-15dp"
+            android:fontFamily="@font/poppins_regular"
+            android:paddingEnd="30dp"
+            android:text="Yamaha R1 M adalah motor sport fairing yang memadukan kehebatan teknologi dan performa yang mengesankan. Dibangun dengan inovasi terkini dari Yamaha di lintasan balap, R1 M menawarkan pengalaman berkendara yang tak terlupakan. Mesin bertenaga 998 cc dengan desain 4-silinder memberikan akselerasi yang menggairahkan dan respons yang tajam di setiap putaran gas"
             android:textColor="@color/color_white"
-            android:textSize="13sp"
-            app:layout_constraintStart_toEndOf="@+id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@+id/title"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent=".42" />
-
-        <TextView
-            android:id="@+id/description"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:ellipsize="end"
-            android:maxLines="3"
-            android:fontFamily="sans-serif-black"
-            android:lineSpacingMultiplier="1.2"
-            android:text="Avatar : The way of water"
-            android:textColor="@color/color_white"
-            android:textSize="13sp"
-            app:layout_constraintStart_toEndOf="@+id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@+id/language"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent=".42" />
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_model"
+            tools:ignore="UnusedAttribute" />
 
         <TextView
             android:id="@+id/view_more"
@@ -113,63 +101,62 @@
             android:drawablePadding="8dp"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:nextFocusDown="@id/more_like_this"
             android:padding="8dp"
             android:text="View More Information"
             android:textColor="@color/color_white"
             android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@id/description"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent=".3" />
+            app:layout_constraintStart_toStartOf="@id/tv_deskripsi_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_deskripsi_content" />
 
-        <TextView
-            android:id="@+id/more_like_this"
+        <LinearLayout
+            android:id="@+id/layout_spesifikasi"
+            android:layout_width="600dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_more">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="@id/tv_deskripsi_content"
+                app:layout_constraintTop_toBottomOf="@id/img_banner">
+
+                <TextView
+                    android:id="@+id/tv_spesifikasi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/poppins_bold"
+                    android:text="@string/spesifikasi"
+                    android:textAlignment="center"
+                    android:textColor="@color/color_white"
+                    android:textSize="50sp"
+                    tools:ignore="UnusedAttribute" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="3dp"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="20dp"
+                    android:background="@color/color_white" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_spesifikasi"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/selector_btn"
-            android:drawableStart="@drawable/ic_more"
-            android:drawablePadding="8dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:nextFocusDown="@id/add_to_mylist"
-            android:padding="8dp"
-            android:text="More Like This"
-            android:textColor="@color/color_white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@id/view_more"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent=".3" />
-
-        <TextView
-            android:id="@+id/add_to_mylist"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/selector_btn"
-            android:drawableStart="@drawable/ic_add"
-            android:drawablePadding="8dp"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:padding="8dp"
-            android:text="Add to My List"
-            android:textColor="@color/color_white"
-            android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@id/more_like_this"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent=".3" />
-
-        <androidx.fragment.app.FragmentContainerView
-            android:id="@+id/cast_fragment"
-            android:name="com.pelitabangsa.upbandroidtv.ListFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@id/add_to_mylist" />
-
+            android:scrollbars="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_spesifikasi"
+            tools:itemCount="3"
+            tools:listitem="@layout/item_detail_specification_view" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

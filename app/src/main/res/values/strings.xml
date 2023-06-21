@@ -11,4 +11,8 @@
     <string name="languages">Languages</string>
     <string name="genres">Genres</string>
     <string name="motor">Motor</string>
+    <string name="deskripsi_nmotor">Deskripsi\nMotor</string>
+    <string name="spesifikasi">Spesifikasi</string>
+    <string name="tentang_kami" />
+    <string name="isi_about" />
 </resources>
